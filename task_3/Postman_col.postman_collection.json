@@ -1,0 +1,193 @@
+{
+  "info": {
+    "_postman_id": "f161728f-a3ac-4595-b18e-f786a11b77b6",
+    "name": "Postman_col",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24894708"
+  },
+  "item": [
+    {
+      "name": "Get Posts",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"To check status code for GET is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Post",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"To check status code for POST is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"To check response title for POST\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    var title_exp = pm.variables.get(\"Post_title\"); \r",
+              "    pm.expect(jsonData.title).to.eql(title_exp);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"To check response body for POST\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    var body_exp = pm.variables.get(\"Post_body\"); \r",
+              "    pm.expect(jsonData.body).to.eql(body_exp);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "  {\r\n    \"userId\": {{Post_userId}},\r\n    \"id\": {{Post_id}},\r\n    \"title\": \"{{Post_title}}\",\r\n    \"body\": \"{{Post_body}}\"\r\n  }\r\n\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Post",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"To check status code for DELETE is 200/204\", function () {\r",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/{Delete_id}",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "{Delete_id}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "Post_userId",
+      "value": "11"
+    },
+    {
+      "key": "Post_id",
+      "value": "1011"
+    },
+    {
+      "key": "Post_title",
+      "value": "My New Post Title"
+    },
+    {
+      "key": "Post_body",
+      "value": "My New Post Body..."
+    },
+    {
+      "key": "Delete_id",
+      "value": "5"
+    }
+  ]
+}

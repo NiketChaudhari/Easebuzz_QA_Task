@@ -1,0 +1,19 @@
+Question :
+During production release, you find 2 critical bugs reported by the client that were missed in QA.
+What’s your approach to fix gaps in process and testing?
+
+
+Answer :
+I will work with the development team to triage and release hotfixes quickly, while keeping stakeholders informed with clear updates.
+Will conduct a blameless root cause analysis, which revealed gaps in edge-case coverage and unclear acceptance criteria.
+Will also find the gap by : 
+    Where did these bugs originate?
+    What test cases should have caught them?
+    Did they appear in regression, exploratory, or edge-case scenarios?
+Will check if prod behavior differs from QA environment to investigate the Environment gap.
+Will add the missed scenarios to the suite immediately.
+For preventing same issue in future, I will add exploratory testing sessions before major releases, specifically targeting integration points and edge cases.
+
+
+
+

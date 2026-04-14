@@ -1,0 +1,3 @@
+# Pytest run command : 
+pytest -s -v --framework=selenium --browser=chrome
+pytest -s -v --framework=playwright

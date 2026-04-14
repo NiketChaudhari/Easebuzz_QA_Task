@@ -1,0 +1,19 @@
+Question :
+You are leading a team of 4 QA engineers.
+The sprint velocity is dropping due to flaky automation tests.
+How will you handle this situation?
+
+
+Answer :
+I will first analyze failure trends and identify common causes like timing issues, unstable locators, and environment inconsistencies.
+I will quarantine flaky tests temporarily so they will not block the CI pipeline.
+I will also arrange code reviews and standards for automation scripts to improve quality and assign each tester ownership of a failing test cluster to investigate and fix.
+
+
+
+
+
+
+
+
+
